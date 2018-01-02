@@ -20,7 +20,7 @@ contract Token {
     string internal _symbol;
     string internal _name;
     uint8 internal _decimals;
-    uint internal _totalSupply = 10000000000000000000;
+    uint internal _totalSupply = 1000;
     mapping (address => uint) internal _balanceOf;
     mapping (address => mapping (address => uint)) internal _allowances;
 
@@ -78,7 +78,7 @@ library SafeMath {
   }
 }
 
-contract YwdSubDelta is Token("YWD", "YWD substitute Delta", 18, 10000000000000000000000000), ERC20, ERC223 {
+contract YwdSubGolf is Token("GYWD", "Golf of YWD substitute", 18, 1000000), ERC20, ERC223 {
 
     using SafeMath for uint;
 
