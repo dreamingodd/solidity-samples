@@ -1,3 +1,6 @@
 
-#Node
+#node
 node_modules
+
+#truffle
+build
