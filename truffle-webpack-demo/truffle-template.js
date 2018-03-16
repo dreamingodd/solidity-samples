@@ -13,9 +13,9 @@ module.exports = {
     rinkeby: {
       host: '192.168.213.170',
       port: 8555,
-      network_id: '*'，
-      coinbase: '0xad837b3c9c34295e797d94fb421c4b9280fc6d1f',
-      password: 'mvc123$%^',
+      network_id: '*',
+      coinbase: '',
+      password: '',
     },
     live: {
       network_id: "*",
