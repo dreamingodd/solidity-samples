@@ -9,9 +9,11 @@ import $ from 'jquery'
 
 // Import our contract artifacts and turn them into usable abstractions.
 import metacoin_artifacts from '../../build/contracts/MetaCoin.json'
+import humanstandardtoken_artifacts from '../../build/contracts/HumanStandardToken.json'
 
 // MetaCoin is our usable abstraction, which we'll use through the code below.
 var MetaCoin = contract(metacoin_artifacts);
+var HumanStandardToken = contract(humanstandardtoken_artifacts)
 
 // The following code is simple to show off interacting with your contracts.
 // As your needs grow you will likely need to change its form and structure.
@@ -26,6 +28,7 @@ window.App = {
     // Bootstrap the MetaCoin abstraction for Use.
     console.log(web3.currentProvider);
     MetaCoin.setProvider(web3.currentProvider);
+    HumanStandardToken.setProvider(web3.currentProvider);
 
     // Get the initial account balance so it can be displayed.
     web3.eth.getAccounts(function(err, accs) {
@@ -94,6 +97,17 @@ window.App = {
     console.log(web3)
     let balance = web3.fromWei(web3.eth.getBalance(addr));
     $('#balance-span').html(balance.valueOf())
+    var token;
+    console.log(MetaCoin);
+    console.log(HumanStandardToken)
+    var token;
+    HumanStandardToken.deployed().then(function(instance){
+      token = instance;
+      console.log(token.balanceOf('0xad837b3c9c34295e797d94fb421c4b9280fc6d1f').valueOf())
+      return token.transfer('0x20771815237d62ba03737123c96f90678c3ade46', 22, {from: '0xad837b3c9c34295e797d94fb421c4b9280fc6d1f'})
+    }).catch(function(e) {
+      console.log(e)
+    })
   },
 
   showYwdBalance: function() {

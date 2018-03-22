@@ -24,7 +24,7 @@ contract HumanStandardToken is StandardToken {
     string public symbol = 'PCB';                 //An identifier: eg SBX
     string public version = 'H0.1';           //human 0.1 standard. Just an arbitrary versioning scheme.
 
-    function HumanStandardToken() {
+    function HumanStandardToken() public {
       balances[msg.sender] = 10000000000000000000000000000;               // Give the creator all initial tokens
       totalSupply = 10000000000000000000000000000;
     }

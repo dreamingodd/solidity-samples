@@ -5,12 +5,12 @@ const Web3 = require('web3')
 module.exports = {
   env: "rinkeby",
   networks: {
+    // development: {
+    //   host: 'localhost',
+    //   port: 8545,
+    //   network_id: '*' // Match any network id
+    // },
     development: {
-      host: 'localhost',
-      port: 8545,
-      network_id: '*' // Match any network id
-    },
-    rinkeby: {
       host: '192.168.213.170',
       port: 8555,
       network_id: '*',
