@@ -91,19 +91,13 @@ window.App = {
   showEthBalance: function() {
     var self = this;
     var addr = $('#addr').val();
-    console.log(addr)
-    var meta
-    MetaCoin.deployed().then(function(instance) {
-      meta = instance
-      return meta.getBalance(addr)
-    }).then(function(value) {
-      console.log(value.toString(10))
-      var balance_element = document.getElementById("balance");
-      balance_element.innerHTML = value.valueOf();
-    }).catch(function(e){
-      console.log(e);
-      self.setStatus("Error sending coin; see log.")
-    })
+    console.log(web3)
+    let balance = web3.fromWei(web3.eth.getBalance(addr));
+    $('#balance-span').html(balance.valueOf())
+  },
+
+  showYwdBalance: function() {
+
   }
 };
 
@@ -118,7 +112,7 @@ window.addEventListener('load', function() {
     console.warn("No web3 detected. Falling back to http://127.0.0.1:9545. You should remove this fallback when you deploy live, as it's inherently insecure. Consider switching to Metamask for development. More info here: http://truffleframework.com/tutorials/truffle-and-metamask");
     // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
     // window.web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8545"));
-    window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+    window.web3 = new Web3(new Web3.providers.HttpProvider("http://192.168.213.170:8555"));
   }
 
   App.start();

@@ -14,13 +14,13 @@ contract TestHumanStandardToken {
   }
 
   function TestHumanStandardToken() {
-    ywd = new HumanStandardToken(100, "Ye, Wenda", 4, "YWD");
+    ywd = new HumanStandardToken();
   }
 
   function testConstructor() public {
     /* HumanStandardToken HST = HumanStandardToken(DeployedAddresses.HumanStandardToken()); */
     uint allocatedTokens = ywd.balanceOf(this);
-    Assert.equal(allocatedTokens, 100, "Contract creator should hold 10000 tokens.");
+    Assert.equal(allocatedTokens, 100, "Contract creator should hold 100 tokens.");
   }
 
   function testTransfer() public {
